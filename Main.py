@@ -23,7 +23,12 @@ while running:
 
     # fill the screen with a color to wipe away anything from last frame
     screen.fill("purple")
-
+    
+    police = pygame.font.SysFont("monospace", 15)
+    image_texte = police.render("texte uwu", 1 ,(255,0,0))
+    screen.blit(image_texte, (320,240))
+    pygame.display.flip()
+    
     rect1 = pygame.draw.rect(screen, "black", pygame.Rect(10, player_pos.y, 20, 80))
     keys = pygame.key.get_pressed()
     
@@ -51,19 +56,19 @@ while running:
     
     #rebond sur le pong (Gauche et droite)
     if circle.colliderect(rect1):
-        balle_force.x = 500 * multiplicateurForce
+        balle_force.x = 200 * multiplicateurForce
         multiplicateurForce += 0.01
-        score +1
+        score += 1
     if circle.colliderect(rect2):
-        balle_force.x = -500 * multiplicateurForce
+        balle_force.x = -200 * multiplicateurForce
         multiplicateurForce += 0.01
-        score +1
+        score += 1
     
     #Rebond plafond et bas
     if balle_pos.y > 700:
-        balle_force.y = -300
+        balle_force.y = -200
     if balle_pos.y < 0:
-        balle_force.y = 300
+        balle_force.y = 200
         
     
     
